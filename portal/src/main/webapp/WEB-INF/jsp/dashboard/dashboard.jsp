@@ -172,9 +172,9 @@
         background: #dddddd !important;
         cursor:not-allowed !important;
     }
-    
+
     .legacy .fixedWidth .contentWidth {
-        width:1300px;
+        /* width:1300px; */
     }
 </style>
 
@@ -253,7 +253,7 @@
             window.location.hash = '#cna';
         });
     }
-    
+
     $(document).ready(function() {
         //this is for testing, once done this should be commented/deleted
         //window.cbioURL = '';
@@ -270,7 +270,7 @@
             $(span).mailme(true);
             emailContact_ = $(span).prop('outerHTML');
         }
-        
+
         var studyIds = Object.keys(studyCasesMap);
         $.when(window.cbioportal_client.getStudies({ study_ids: studyIds}), window.iviz.datamanager.getGeneticProfiles())
             .then(function(_cancerStudies, _geneticProfiles){
@@ -284,7 +284,7 @@
 					    _desc += '&nbsp;<a href="http://www.ncbi.nlm.nih.gov/pubmed/'+_cancerStudy.pmid+'">PubMed</a>';
 					}
 					$("#study_desc").html(_desc);
-					
+
 					var _mutationProfiles = _.filter(_geneticProfiles, function (_profile) {
 					    return _profile.study_id + '_mutations' === _profile.id;
 					});
@@ -297,7 +297,7 @@
 					if(_cnaProfiles.length>0){
 					    appendCnaTab();
 					}
-					
+
 					// TODO changed mutationProfileId to mutationProfileIds when mutations tab support multi-studies
 					StudyViewParams.params = {
 					    studyId: _cancerStudy.id,
@@ -474,8 +474,8 @@
             });
     });
 </script>
-    
-    
+
+
     </span>
 </body>
 </html>
