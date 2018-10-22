@@ -1,7 +1,6 @@
 package org.cbioportal.service;
 
 import org.cbioportal.model.Mutation;
-import org.cbioportal.model.MutationCount;
 import org.cbioportal.model.MutationCountByPosition;
 import org.cbioportal.model.MutationCountByGene;
 import org.cbioportal.model.meta.MutationMeta;
@@ -43,16 +42,15 @@ public interface MutationService {
                                                                         List<String> sampleIds,
                                                                         List<Integer> entrezGeneIds)
         throws MolecularProfileNotFoundException;
+    
+    List<MutationCountByGene> getSampleCountInMultipleMolecularProfiles(List<String> molecularProfileIds,
+                                                                        List<String> sampleIds,
+                                                                        List<Integer> entrezGeneIds,
+                                                                        boolean includeFrequency);
 
     List<MutationCountByGene> getPatientCountByEntrezGeneIdsAndSampleIds(String molecularProfileId,
                                                                         List<String> patientIds,
                                                                         List<Integer> entrezGeneIds)
-        throws MolecularProfileNotFoundException;
-
-    List<MutationCount> getMutationCountsInMolecularProfileBySampleListId(String molecularProfileId, String sampleListId) 
-        throws MolecularProfileNotFoundException;
-
-    List<MutationCount> fetchMutationCountsInMolecularProfile(String molecularProfileId, List<String> sampleIds) 
         throws MolecularProfileNotFoundException;
 
     List<MutationCountByPosition> fetchMutationCountsByPosition(List<Integer> entrezGeneIds, 
