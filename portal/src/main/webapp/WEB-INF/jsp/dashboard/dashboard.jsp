@@ -184,7 +184,7 @@
     }
     
     .legacy .fixedWidth .contentWidth {
-        width:1300px;
+        /* width:1300px; */
     }
 </style>
 
